@@ -14,7 +14,7 @@ const DashboardComponent = () => {
         <header className="sticky bg-white top-0 flex h-16 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <MobileNavbar />
         </header>
-        <main className="flex flex-1 flex-col gap-4 py-4 lg:gap-6 border-l lg:py-6">
+        <main className="flex flex-1 flex-col gap-4 bg-[#FCFCFC] py-4 lg:gap-6 border-l lg:py-6">
           <MainDashboard />
         </main>
       </div>

@@ -25,13 +25,13 @@ const MainDashboard = () => {
       <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
         {isMobile ? (
           <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>
+            <AccordionItem className="border-b" value="item-1">
+              <AccordionTrigger className="py-4">
                 <span className="font-bold text-lg ps-1">New user signups</span>
               </AccordionTrigger>
               <AccordionContent>
                 <div className="grid gap-4 md:grid-cols-2 pt-1 md:gap-8 lg:grid-cols-4">
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Total signups
@@ -44,7 +44,7 @@ const MainDashboard = () => {
                       </p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Paid Users
@@ -57,7 +57,7 @@ const MainDashboard = () => {
                       </p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Free Users
@@ -70,7 +70,7 @@ const MainDashboard = () => {
                       </p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Users with no subscribers
@@ -87,12 +87,12 @@ const MainDashboard = () => {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>
+              <AccordionTrigger className="py-4">
                 <span className="font-bold text-lg ps-1">User activities</span>
               </AccordionTrigger>
               <AccordionContent>
                 <div className="grid gap-4 md:grid-cols-2 pt-1 md:gap-8 lg:grid-cols-4">
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Total page views
@@ -105,7 +105,7 @@ const MainDashboard = () => {
                       </p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Active
@@ -116,7 +116,7 @@ const MainDashboard = () => {
                       <p className="text-xs pt-2 text-muted-foreground">+5%</p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Inactive users
@@ -129,7 +129,7 @@ const MainDashboard = () => {
                       </p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="bg-[#FFFFFF]">
                     <CardHeader className="items-center text-left space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium text-left w-full">
                         Users with no activity
@@ -151,7 +151,7 @@ const MainDashboard = () => {
             <div>
               <span className="font-bold text-lg ps-1">New user signups</span>
               <div className="grid gap-4 md:grid-cols-2 pt-1 md:gap-8 lg:grid-cols-4">
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Total signups
@@ -164,7 +164,7 @@ const MainDashboard = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Paid Users
@@ -177,7 +177,7 @@ const MainDashboard = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Free Users
@@ -190,7 +190,7 @@ const MainDashboard = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Users with no subscribers
@@ -208,7 +208,7 @@ const MainDashboard = () => {
             <div className="mt-10">
               <span className="font-bold text-lg ps-1">User activities</span>
               <div className="grid gap-4 md:grid-cols-2 pt-1 md:gap-8 lg:grid-cols-4">
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Total page views
@@ -221,7 +221,7 @@ const MainDashboard = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Active
@@ -234,7 +234,7 @@ const MainDashboard = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Inactive users
@@ -247,7 +247,7 @@ const MainDashboard = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-[#FFFFFF]">
                   <CardHeader className="items-center text-left space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium text-left w-full">
                       Users with no activity

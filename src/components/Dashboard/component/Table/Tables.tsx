@@ -15,7 +15,6 @@ import {
 import { ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-// import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -33,6 +32,8 @@ import {
 } from "@/components/ui/table";
 import data from "@/constants/DashboardTable";
 import { columns } from "./Columns";
+import Pagination from "@/components/common/Pagination";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export function DashboardTable() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -43,13 +44,24 @@ export function DashboardTable() {
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
 
+  const isMobile = useMediaQuery("(max-width:901px)");
+  const [page, setPage] = React.useState(1);
+  const itemsPerPage = isMobile ? 5 : 10;
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const onPageChange = (pageNumber: number) => {
+    setPage(pageNumber);
+  };
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, data.length);
+  const currentPageData = data.slice(startIndex, endIndex);
+
   const table = useReactTable({
-    data,
+    data: currentPageData,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
@@ -103,7 +115,7 @@ export function DashboardTable() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-[10px] border bg-[#FFFFFF]">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -154,27 +166,12 @@ export function DashboardTable() {
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
-        <div className="space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            Previous
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            Next
-          </Button>
+        <div className="mt-10">
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={onPageChange}
+          />
         </div>
       </div>
     </div>
