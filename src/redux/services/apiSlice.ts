@@ -1,3 +1,5 @@
+// handling token or authenticated routes
+
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import fetchToken from "@/lib/auth";
 
@@ -15,5 +17,5 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
-  endpoints: (builder) => ({}),
+  endpoints: (builder) => ({}),  
 });
