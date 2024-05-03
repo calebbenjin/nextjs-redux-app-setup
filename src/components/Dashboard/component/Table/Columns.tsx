@@ -52,7 +52,7 @@ export const columns: ColumnDef<Payment>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="">
+      <div className="w-[120px]">
         <div>{row.getValue("name")}</div>
         <div className="text-xs text-gray-400 lg:hidden">
           {row.getValue("email")}
@@ -74,10 +74,10 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "plan",
     header: ({}) => {
-      return <h1 className="">Plan</h1>;
+      return <h1 className="text-start">Plan</h1>;
     },
     cell: ({ row }) => (
-      <div className="capitalize rounded py-1 bg-[#F0F2F5] ">
+      <div className="capitalize rounded py-1 w-10 text-center bg-[#F0F2F5] text-xs">
         {row.getValue("plan")}
       </div>
     ),
@@ -128,7 +128,7 @@ export const columns: ColumnDef<Payment>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0 bg-white">
+            <Button variant="ghost" className="h-8 w-3 md:w-5 lg:w-8 p-0 bg-white">
               <span className="sr-only">Open menu</span>
               <MoreVertical className="h-4 w-4" />
             </Button>

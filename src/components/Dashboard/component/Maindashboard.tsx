@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DashboardTable } from "./Table/Tables";
 import {
@@ -12,14 +13,43 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 const MainDashboard = () => {
   const isMobile = useMediaQuery("(max-width:1300px)");
+  const [selectedItem, setSelectedItem] = React.useState("today");
   return (
     <div className="flex min-h-screen w-full flex-col">
       <div>
-        <ul className="lg:mx-6 mx-4 flex gap-x-5 text-xs md:text-base mt-4 border-b-2 pb-5">
-          <li>Today</li>
-          <li>Yesterday</li>
-          <li>Last 7 days</li>
-          <li>Last 30 days</li>
+        <ul className="lg:mx-6 mx-4 cursor-pointer flex gap-x-5 text-xs md:text-base mt-4 border-b-2">
+          <li
+            className={`${
+              selectedItem === "today" ? "border-b-4 pb-3 border-[#02579E] text-[#02579E]" : ""
+            } transition duration-300`}
+            onClick={() => setSelectedItem("today")}
+          >
+            Today
+          </li>
+          <li
+            className={`${
+              selectedItem === "yesterday" ? "border-b-4 pb-3 border-[#02579E] text-[#02579E]" : ""
+            } transition duration-300`}
+            onClick={() => setSelectedItem("yesterday")}
+          >
+            Yesterday
+          </li>
+          <li
+            className={`${
+              selectedItem === "last7days" ? "border-b-4 pb-3 border-[#02579E] text-[#02579E]" : ""
+            } transition duration-300`}
+            onClick={() => setSelectedItem("last7days")}
+          >
+            Last 7 days
+          </li>
+          <li
+            className={`${
+              selectedItem === "last30days" ? "border-b-4 pb-3 border-[#02579E] text-[#02579E]" : ""
+            } transition duration-300`}
+            onClick={() => setSelectedItem("last30days")}
+          >
+            Last 30 days
+          </li>
         </ul>
       </div>
       <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
@@ -39,7 +69,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">3,000</div>
-                      <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                      <p className="text-xs pt-2 font-bold text-[#088738]">
                         +15%
                       </p>
                     </CardContent>
@@ -52,7 +82,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">2,500</div>
-                      <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                      <p className="text-xs pt-2 font-bold text-[#088738]">
                         +10%
                       </p>
                     </CardContent>
@@ -65,7 +95,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">500</div>
-                      <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                      <p className="text-xs pt-2 font-bold text-[#088738]">
                         +20%
                       </p>
                     </CardContent>
@@ -78,7 +108,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">75</div>
-                      <p className="text-xs pt-2 text-muted-foreground text-[#E83808]">
+                      <p className="text-xs pt-2 font-bold text-[#E83808]">
                         -5%
                       </p>
                     </CardContent>
@@ -86,7 +116,7 @@ const MainDashboard = () => {
                 </div>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-2">
+            <AccordionItem value="item-2" className="border-b">
               <AccordionTrigger className="py-4">
                 <span className="font-bold text-lg ps-1">User activities</span>
               </AccordionTrigger>
@@ -100,7 +130,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">25,000</div>
-                      <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                      <p className="text-xs pt-2 font-bold text-[#088738]">
                         +10%
                       </p>
                     </CardContent>
@@ -113,7 +143,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">1,000</div>
-                      <p className="text-xs pt-2 text-muted-foreground">+5%</p>
+                      <p className="text-xs pt-2 font-bold">+5%</p>
                     </CardContent>
                   </Card>
                   <Card className="bg-[#FFFFFF]">
@@ -124,7 +154,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">2,000</div>
-                      <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                      <p className="text-xs pt-2 font-bold text-[#088738]">
                         +15%
                       </p>
                     </CardContent>
@@ -137,7 +167,7 @@ const MainDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold">500</div>
-                      <p className="text-xs pt-2 text-muted-foreground text-[#E83808]">
+                      <p className="text-xs pt-2 font-bold text-[#E83808]">
                         -20%
                       </p>
                     </CardContent>
@@ -159,7 +189,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">3,000</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                    <p className="text-xs pt-2 font-bold text-[#088738]">
                       +15%
                     </p>
                   </CardContent>
@@ -172,7 +202,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">2,500</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                    <p className="text-xs pt-2 font-bold text-[#088738]">
                       +10%
                     </p>
                   </CardContent>
@@ -185,7 +215,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">500</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                    <p className="text-xs pt-2 font-bold text-[#088738]">
                       +20%
                     </p>
                   </CardContent>
@@ -198,7 +228,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">75</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#E83808]">
+                    <p className="text-xs pt-2 font-bold text-[#E83808]">
                       -5%
                     </p>
                   </CardContent>
@@ -216,7 +246,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">25,000</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                    <p className="text-xs pt-2 font-bold text-[#088738]">
                       +10%
                     </p>
                   </CardContent>
@@ -229,7 +259,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">1,000</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                    <p className="text-xs pt-2 font-bold text-[#088738]">
                       +5%
                     </p>
                   </CardContent>
@@ -242,7 +272,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">2,000</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#088738]">
+                    <p className="text-xs pt-2 font-bold text-[#088738]">
                       +15%
                     </p>
                   </CardContent>
@@ -255,7 +285,7 @@ const MainDashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">500</div>
-                    <p className="text-xs pt-2 text-muted-foreground text-[#E83808]">
+                    <p className="text-xs pt-2 font-bold text-[#E83808]">
                       -20%
                     </p>
                   </CardContent>

@@ -120,7 +120,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="mt-auto p-4 flex flex-col gap-y-3 ">
+      <div className="mt-auto p-4 flex flex-col gap-y-5">
         <Link href={""}>
           <button className="w-full h-[40px] bg-[#02579E] text-white rounded-[10px]">
             New report

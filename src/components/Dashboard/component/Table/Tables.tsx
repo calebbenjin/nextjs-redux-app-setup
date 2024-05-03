@@ -8,7 +8,6 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
@@ -94,7 +93,7 @@ export function DashboardTable() {
               </Button>
             </div>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="bg-white">
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
@@ -166,7 +165,7 @@ export function DashboardTable() {
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="mt-10">
+        <div>
           <Pagination
             currentPage={page}
             totalPages={totalPages}
