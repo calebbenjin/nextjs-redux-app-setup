@@ -1,27 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import {
-  Bell,
-  CircleUser,
-  Home,
-  LineChart,
-  Menu,
-  Package,
-  Package2,
-  Search,
-  ShoppingCart,
-  Users,
-} from "lucide-react";
-
-import { Badge } from "@/components/ui/badge";
+import { Bell, CircleUser, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -41,6 +23,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "../../../../public/images/Logo";
 
 const MobileNavbar = () => {
+  const [selectedItem, setSelectedItem] = React.useState("Dashboard");
   return (
     <div className="flex justify-between items-center w-full">
       <div className="flex  items-center gap-x-5">
@@ -50,10 +33,15 @@ const MobileNavbar = () => {
               <Menu className="h-5 w-5 md:hidden" />
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
-              <nav className="flex flex-col gap-y-3 pt-3 items-start px-2 text-sm font-medium lg:px-4">
+              <nav className="flex flex-col gap-y-3 pt-3 items-start text-sm font-medium lg:px-4">
                 <Link
                   href="#"
-                  className="flex items-center gap-3 rounded-lg lg:px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                  className={`${
+                    selectedItem === "Dashboard"
+                      ? " bg-[#F0F2F5] rounded-[12px]"
+                      : ""
+                  } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                  onClick={() => setSelectedItem("Dashboard")}
                 >
                   <Image
                     src={"/icon/homeIcon.svg"}
@@ -65,7 +53,12 @@ const MobileNavbar = () => {
                 </Link>
                 <Link
                   href="#"
-                  className="flex items-center gap-3 rounded-lg lg:px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                  className={`${
+                    selectedItem === "Users"
+                      ? " bg-[#F0F2F5] rounded-[12px]"
+                      : ""
+                  } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                  onClick={() => setSelectedItem("Users")}
                 >
                   <Image
                     src={"/icon/userIcon.svg"}
@@ -76,7 +69,7 @@ const MobileNavbar = () => {
                   Users
                 </Link>
 
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion type="single" collapsible className="w-full px-3">
                   <AccordionItem value="item-1">
                     <AccordionTrigger>
                       <div className="flex items-center gap-3 rounded-lg bg-muted lg:px-3 py-2 text-sm text-primary transition-all hover:text-primary">
@@ -91,13 +84,37 @@ const MobileNavbar = () => {
                     </AccordionTrigger>
                     <AccordionContent>
                       <ul className="lg:ms-10 ms-7 flex flex-col gap-y-5 mt-3">
-                        <Link href={""}>
+                        <Link
+                          href={""}
+                          className={`${
+                            selectedItem === "Articles"
+                              ? " bg-[#F0F2F5] rounded-[12px]"
+                              : ""
+                          } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                          onClick={() => setSelectedItem("Articles")}
+                        >
                           <li>News/Blog Articles</li>
                         </Link>
-                        <Link href={""}>
+                        <Link
+                          href={""}
+                          className={`${
+                            selectedItem === "Announcements"
+                              ? " bg-[#F0F2F5] rounded-[12px]"
+                              : ""
+                          } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                          onClick={() => setSelectedItem("Announcements")}
+                        >
                           <li>Announcements</li>
                         </Link>
-                        <Link href={""}>
+                        <Link
+                          href={""}
+                          className={`${
+                            selectedItem === "Newsletter"
+                              ? " bg-[#F0F2F5] rounded-[12px]"
+                              : ""
+                          } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                          onClick={() => setSelectedItem("Newsletter")}
+                        >
                           <li>Newsletter</li>
                         </Link>
                       </ul>
@@ -107,7 +124,12 @@ const MobileNavbar = () => {
 
                 <Link
                   href="#"
-                  className="flex items-center gap-3 rounded-lg lg:px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                  className={`${
+                    selectedItem === "Messages"
+                      ? " bg-[#F0F2F5] rounded-[12px]"
+                      : ""
+                  } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                  onClick={() => setSelectedItem("Messages")}
                 >
                   <Image
                     src={"/icon/messageIcon.svg"}
@@ -119,7 +141,12 @@ const MobileNavbar = () => {
                 </Link>
                 <Link
                   href="#"
-                  className="flex items-center gap-3 rounded-lg lg:px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                  className={`${
+                    selectedItem === "Settings"
+                      ? " bg-[#F0F2F5] rounded-[12px]"
+                      : ""
+                  } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                  onClick={() => setSelectedItem("Settings")}
                 >
                   <Image
                     src={"/icon/settingsIcon.svg"}

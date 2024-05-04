@@ -1,7 +1,12 @@
+import SingleDashDetail from "@/components/SingleDashDetail";
 import React from "react";
 
 const SingleDashboardPage = () => {
-  return <div>SingleDashboardPage</div>;
+  return (
+    <div>
+      <SingleDashDetail />
+    </div>
+  );
 };
 
 export default SingleDashboardPage;

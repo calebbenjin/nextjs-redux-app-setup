@@ -1,20 +1,5 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Bell,
-  Home,
-  LineChart,
-  Package,
-  Package2,
-  ShoppingCart,
-  Users,
-} from "lucide-react";
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -27,6 +12,7 @@ import Logo from "../../../../public/images/Logo";
 import Image from "next/image";
 
 const Sidebar = () => {
+  const [selectedItem, setSelectedItem] = React.useState("Dashboard");
   return (
     <div className="h-screen flex flex-col justify-between">
       <div>
@@ -40,7 +26,12 @@ const Sidebar = () => {
           <nav className="flex flex-col gap-y-3 pt-3 items-start px-2 text-sm font-medium lg:px-4">
             <Link
               href="#"
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              className={`${
+                selectedItem === "Dashboard"
+                  ? " bg-[#F0F2F5] rounded-[12px]"
+                  : ""
+              } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+              onClick={() => setSelectedItem("Dashboard")}
             >
               <Image
                 src={"/icon/homeIcon.svg"}
@@ -52,7 +43,10 @@ const Sidebar = () => {
             </Link>
             <Link
               href="#"
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              className={`${
+                selectedItem === "Users" ? "bg-[#F0F2F5] rounded-[12px]" : ""
+              } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+              onClick={() => setSelectedItem("Users")}
             >
               <Image
                 src={"/icon/userIcon.svg"}
@@ -78,13 +72,37 @@ const Sidebar = () => {
                 </AccordionTrigger>
                 <AccordionContent>
                   <ul className="ms-10 flex flex-col gap-y-5 mt-3">
-                    <Link href={""}>
+                    <Link
+                      href={""}
+                      className={`${
+                        selectedItem === "Articles"
+                          ? "bg-[#F0F2F5] rounded-[12px]"
+                          : ""
+                      } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                      onClick={() => setSelectedItem("Articles")}
+                    >
                       <li>News/Blog Articles</li>
                     </Link>
-                    <Link href={""}>
+                    <Link
+                      href={""}
+                      className={`${
+                        selectedItem === "Announcements"
+                          ? "bg-[#F0F2F5] rounded-[12px]"
+                          : ""
+                      } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                      onClick={() => setSelectedItem("Announcements")}
+                    >
                       <li>Announcements</li>
                     </Link>
-                    <Link href={""}>
+                    <Link
+                      href={""}
+                      className={`${
+                        selectedItem === "Newsletters"
+                          ? "bg-[#F0F2F5] rounded-[12px]"
+                          : ""
+                      } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+                      onClick={() => setSelectedItem("Newsletters")}
+                    >
                       <li>Newsletter</li>
                     </Link>
                   </ul>
@@ -94,7 +112,10 @@ const Sidebar = () => {
 
             <Link
               href="#"
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              className={`${
+                selectedItem === "Messages" ? "bg-[#F0F2F5] rounded-[12px]" : ""
+              } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+              onClick={() => setSelectedItem("Messages")}
             >
               <Image
                 src={"/icon/messageIcon.svg"}
@@ -106,7 +127,10 @@ const Sidebar = () => {
             </Link>
             <Link
               href="#"
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              className={`${
+                selectedItem === "Settings" ? "bg-[#F0F2F5] rounded-[12px]" : ""
+              } transition duration-300 flex items-center w-full gap-3 rounded-lg px-3 py-2`}
+              onClick={() => setSelectedItem("Settings")}
             >
               <Image
                 src={"/icon/settingsIcon.svg"}
@@ -128,7 +152,6 @@ const Sidebar = () => {
         </Link>
         <ul className="ms-3 gap-y-3 flex flex-col">
           <Link href={""}>
-            {" "}
             <li className="flex gap-x-2 items-center">
               <Image src={"/icon/que.svg"} alt={""} width={24} height={24} />
               <span>Help and feedback</span>
@@ -148,7 +171,6 @@ const Sidebar = () => {
           </Link>
 
           <Link href={""}>
-            {" "}
             <li className="flex gap-x-2 items-center">
               <Image src={"/icon/heart.svg"} alt={""} width={24} height={24} />
               <span>Status</span>

@@ -77,7 +77,7 @@ export function DashboardTable() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Search Users"
+          placeholder="Search User email"
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)

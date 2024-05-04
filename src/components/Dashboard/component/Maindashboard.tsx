@@ -15,7 +15,7 @@ const MainDashboard = () => {
   const isMobile = useMediaQuery("(max-width:1300px)");
   const [selectedItem, setSelectedItem] = React.useState("today");
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-full w-full flex-col lg:px-5">
       <div>
         <ul className="lg:mx-6 mx-4 cursor-pointer flex gap-x-5 text-xs md:text-base mt-4 border-b-2">
           <li
