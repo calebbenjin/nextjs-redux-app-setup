@@ -44,6 +44,7 @@ const batchApi = batchApiConfig.injectEndpoints({
 });
 
 export const {
+  useGetAllDataQuery,
   useCreateBatchMutation,
   useEditBatchMutation,
   useDeleteBatchMutation,
