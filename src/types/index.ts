@@ -3,5 +3,6 @@ export interface LinkItem {
   title: string;
   link: string;
   icon: any;
+  sublinks?: any[],
 }
 

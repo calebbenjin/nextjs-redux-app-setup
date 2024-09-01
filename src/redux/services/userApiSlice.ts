@@ -1,6 +1,6 @@
-import { apiSlice } from "./apiSlice";
+import { api } from "./apiSlice";
 
-const userApiConfig = apiSlice.enhanceEndpoints({ addTagTypes: ["User"] });
+const userApiConfig = api.enhanceEndpoints({ addTagTypes: ["User"] });
 
 const userApi = userApiConfig.injectEndpoints({
   endpoints: (builder) => ({

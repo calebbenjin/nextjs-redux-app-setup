@@ -1,8 +1,25 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import fetchToken from "@/lib/auth";
 
-export const apiSlice = createApi({
+export const api = createApi({
   reducerPath: "api",
+  tagTypes: [
+    "Batchs",
+    "Beneficiaries",
+    "Customer",
+    "Employee",
+    "Expense",
+    "Farms",
+    "Feeds",
+    "Harvest",
+    "Inventory",
+    "Notifications",
+    "Ponds",
+    "Sub",
+    "Tasks",
+    "Teams",
+    "User",
+  ],
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_API_URL}`,
     prepareHeaders: async (headers) => {
@@ -15,5 +32,6 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
+  keepUnusedDataFor: 30,
   endpoints: (builder) => ({}),
 });

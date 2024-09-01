@@ -1,6 +1,6 @@
-import { apiSlice } from "./apiSlice";
+import { api } from "./apiSlice";
 
-const batchApiConfig = apiSlice.enhanceEndpoints({ addTagTypes: ["Batchs"] });
+const batchApiConfig = api.enhanceEndpoints({ addTagTypes: ["Batchs"] });
 
 const batchApi = batchApiConfig.injectEndpoints({
   endpoints: (builder) => ({

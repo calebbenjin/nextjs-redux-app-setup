@@ -1,14 +1,28 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { apiSlice } from "./services/apiSlice";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export const store = configureStore({
-  reducer: {
-    [apiSlice.reducerPath]: apiSlice.reducer,
+export interface InitialStateTypes {
+  isSidebarCollapsed: boolean;
+  isDarkMode: boolean;
+}
+
+const initialState: InitialStateTypes = {
+  isSidebarCollapsed: false,
+  isDarkMode: false,
+};
+
+export const globalSlice = createSlice({
+  name: "global",
+  initialState,
+  reducers: {
+    setIsSidebarCollapsed: (state, action: PayloadAction<boolean>) => {
+      state.isSidebarCollapsed = action.payload;
+    },
+    setIsDarkMode: (state, action: PayloadAction<boolean>) => {
+      state.isDarkMode = action.payload;
+    },
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({}).concat([apiSlice.middleware]),
-  devTools: process.env.NODE_ENV !== "production",
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export const { setIsSidebarCollapsed, setIsDarkMode } = globalSlice.actions;
+
+export default globalSlice.reducer;
